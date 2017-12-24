@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     parameters {
-        choice(choices: 'RHEL\CENTOS', description: 'What is Image Distro?', name: 'ImageDistro')
+        choice(choices: 'RHEL\nCENTOS', description: 'What is Image Distro?', name: 'ImageDistro')
     }
 
     stages {
