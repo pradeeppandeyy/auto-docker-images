@@ -15,7 +15,6 @@ pipeline {
                     expression {
                         "ImageDestro" == "RHEL"
                     }
-                }
         stage("Build") {
             steps {
                 echo "flag: ${params.ImageDestro}"
@@ -23,4 +22,5 @@ pipeline {
             }
         }
     }
+}
 }
