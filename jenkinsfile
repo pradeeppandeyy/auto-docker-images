@@ -1,20 +1,27 @@
-pipeline {
-    agent any
-
-    stages {
-        stage('Build') {
-            steps {
-                echo 'Building..'
+pipeline    {
+    agent   any
+    stages  {
+        stage('stage 1') {
+                steps   {
+                    echo 'this is first stage.'
+                    sh 'whoami'
+                    sh 'docker run hello-world'
+                }
+            
+        }
+        stage('stage 2') {
+            steps   {
+                echo 'this is second stage'
             }
         }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
+        stage('stage 3') {
+            steps   {
+            echo    'this is third stage'
             }
         }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
+        stage('stage 4') {
+            steps   {
+            echo    'this is fifth stage'
             }
         }
     }
