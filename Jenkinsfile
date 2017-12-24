@@ -21,6 +21,8 @@ pipeline {
                         echo 'I execute elsewhere'
                         echo "flag: ${params.ImageDestro}"
                         sh "echo ${params.RequiredRPM}"
+                        writeFile file: 'Dockerfile', text: '''FROM: IMAGE_NAME
+                        RUN: yum install '''
                          }
                     }
                 }   
