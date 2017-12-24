@@ -2,16 +2,17 @@ pipeline {
     agent any
 
        parameters {
-        choice(choices: 'US-EAST-1\nUS-WEST-2', description: 'What AWS region?', name: 'region')
-        // choices are newline separated
-        choice(choices: 'US-EAST-1\nUS-WEST-2', description: 'What AWS region?', name: 'region')
+        // Image Destro.
+        choice(choices: 'RHEL\nCentOS' , description: 'What is the Image Destro?' , name: 'ImageDestro')
+        // Required RPM.
+        choice(choices: 'curl\nnet-tools\nyum-utils' , description: 'Required RPM names?' , name: 'RequiredRPM')
     }
 
     stages {
         stage("foo") {
             steps {
-                echo "flag: ${params.userFlag}"
-                sh "echo ${params.region}"
+                echo "flag: ${params.ImageDestro}"
+                sh "echo ${params.RequiredRPM}"
             }
         }
     }
