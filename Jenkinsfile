@@ -1,15 +1,17 @@
 pipeline {
     agent any
 
-    env.RELEASE_SCOPE = input message: 'User input required', ok: 'Release!',
-                            parameters: [choice(name: 'RELEASE_SCOPE', choices: 'patch\nminor\nmajor', description: 'What is the release scope?')]
-                            
+       parameters {
+        string(defaultValue: "TEST", description: 'What environment?', name: 'userFlag')
+        // choices are newline separated
+        choice(choices: 'US-EAST-1\nUS-WEST-2', description: 'What AWS region?', name: 'region')
+    }
+
     stages {
         stage("foo") {
             steps {
-                script {
-                }
-                echo "${env.RELEASE_SCOPE}"
+                echo "flag: ${params.userFlag}"
+                sh "echo ${params.region}"
             }
         }
     }
