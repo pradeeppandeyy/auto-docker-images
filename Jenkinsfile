@@ -23,7 +23,7 @@ pipeline {
                         sh "echo ${params.RequiredRPM}"
                         writeFile file: 'Dockerfile', text: '''FROM: IMAGE_NAME
                         RUN: yum install '''
-                        sh "echo env"
+                        sh "env"
                          }
                     }
                 }   
