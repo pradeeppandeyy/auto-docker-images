@@ -11,14 +11,15 @@ pipeline {
     }
 
     stages {
+        when {
+                    expression {
+                        "ImageDestro" == "RHEL"
+                    }
+                }
         stage("Build") {
             steps {
-                when {
-                    expression {
-                     "ImageDestro" == "RHEL"   
-                    }
-                   echo "flag: ${params.ImageDestro}" 
-                }
+                echo "flag: ${params.ImageDestro}"
+                sh "echo ${params.RequiredRPM}"
             }
         }
     }
