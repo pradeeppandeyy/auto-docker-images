@@ -15,7 +15,7 @@ pipeline {
             steps {
                 when {
                     expression {
-                     ImageDestro" == "RHEL"   
+                     "ImageDestro" == "RHEL"   
                     }
                    echo "flag: ${params.ImageDestro}" 
                 }
