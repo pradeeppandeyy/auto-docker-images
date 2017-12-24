@@ -3,7 +3,6 @@ pipeline {
 
        parameters {
         choice(choices: 'US-EAST-1\nUS-WEST-2', description: 'What AWS region?', name: 'region')
-        string(defaultValue: "TEST", description: 'What environment?', name: 'userFlag')
         // choices are newline separated
         choice(choices: 'US-EAST-1\nUS-WEST-2', description: 'What AWS region?', name: 'region')
     }
