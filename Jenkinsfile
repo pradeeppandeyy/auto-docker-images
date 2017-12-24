@@ -11,7 +11,7 @@ pipeline {
     }
 
     stages {
-        stage("foo") {
+        stage("Build") {
             steps {
                 echo "flag: ${params.ImageDestro}"
                 sh "echo ${params.RequiredRPM}"
