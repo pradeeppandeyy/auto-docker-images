@@ -14,7 +14,7 @@ pipeline {
         stage("Build") {
             steps {
                 script {
-                    if (env.BRANCH_NAME == 'master') {
+                    if (env.ImageDestro == 'RHEL') {
                         echo 'I only execute on the master branch'
                         }
                     else {
