@@ -15,10 +15,10 @@ pipeline {
             steps {
                 script {
                     if (env.curl == 'true')  {
-                        sh "echo yum install curl -y > Dockerfile"
-                        sh "docker build -t centos7:v1 . "
+                        sh echo "FROM centos:latest" > Dockerfile  && echo "yum install curl -y" >> Dockerfile
                         }
                     }
+                    app = docker.build("getintodevops/hellonode")
                 }   
             }
         }
