@@ -18,9 +18,9 @@ pipeline {
                         if (env.curl == 'true')  {
                         sh "echo yum install -y curl > Dockerfile"
                         }
-//                        if (env.net-tools == 'true')  {
-//                        sh "echo yum install -y net-tools > Dockerfile"
-//                        }
+                        else if (env.net-tools == 'true')  {
+                        sh "echo yum install -y net-tools > Dockerfile"
+                        }
 //                        if (env.bind-utils == 'true')  {
 //                        sh "echo yum install -y bind-utils > Dockerfile"
  //                       }
