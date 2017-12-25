@@ -13,7 +13,7 @@ pipeline {
         stage("Build") {
             when {
                expression {
-                    "curl" == "true"
+                    "env.curl" == "true"
                 }
             }
                 steps {
