@@ -14,16 +14,10 @@ pipeline {
         stage("Build") {
             steps {
                 script {
-                    if (env.ImageDestro == 'RHEL') {
-                        echo 'I only execute on the master branch'
+                    if (env.curl == 'true')  {
+                        echo "yum install curl -y >> Dockerfile"
+                        docker built -t centos7:v1 .
                         }
-                    else {
-                        echo 'I execute elsewhere'
-                        echo "flag: ${params.ImageDestro}"
-                        sh "echo ${params.RequiredRPM}"
-                        writeFile file: 'Dockerfile', text: '''FROM: IMAGE_NAME\nRUN: yum install'''
-                        sh "env"
-                         }
                     }
                 }   
             }
