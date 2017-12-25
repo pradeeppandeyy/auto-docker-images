@@ -17,7 +17,7 @@ pipeline {
                 }
             }
                 steps {
-                 sh "echo yum install -y curl > Dockerfile"   
+                 sh "echo env.ImageVersion > Dockerfile && echo yum install -y curl >> Dockerfile"   
                 }
             }
         }
