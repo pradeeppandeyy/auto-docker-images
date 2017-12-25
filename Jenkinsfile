@@ -10,11 +10,11 @@ pipeline {
         booleanParam(defaultValue: false, description: 'Select if "bind-utils" is required inside the Image.', name: 'bind-utils')
     }
     stages {
-        stage ("Build") {
-            when {
-                expression {
-                    "curl" == "true"
-                }
+        stage("Build") {
+ #           when {
+ #               expression {
+ #                   "curl" == "true"
+ #               }
                 steps {
                  sh "echo yum install -y curl > Dockerfile"   
                 }
