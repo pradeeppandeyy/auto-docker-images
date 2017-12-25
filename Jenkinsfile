@@ -12,9 +12,10 @@ pipeline {
     stages {
         stage("Build") {
             when {
-               expression {
-                    "env.curl" == "true"
-                }
+                environment name: 'curl', value: 'true'
+ //              expression {
+ //                   "env.curl" == "true"
+ //               }
             }
                 steps {
                  sh "echo env.ImageVersion > Dockerfile && echo yum install -y curl >> Dockerfile"   
