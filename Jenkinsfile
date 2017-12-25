@@ -14,13 +14,9 @@ pipeline {
             when {
                 environment name: 'curl', value: 'true'
             }
-                steps {
-                 sh "echo FROM ${env.ImageVersion} > Dockerfile && echo yum install -y curl >> Dockerfile"   
-                }
+            steps {
+                sh "echo FROM ${env.ImageVersion} > Dockerfile && echo yum install -y curl >> Dockerfile"   
             }
         }
     }
-
-
-
-
+}
