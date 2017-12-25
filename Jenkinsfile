@@ -18,7 +18,7 @@ pipeline {
                 steps {
                  sh "echo yum install -y curl > Dockerfile"   
                 }
-            }
+//            }
         }
     }
 }
