@@ -3,7 +3,7 @@ pipeline {
 
        parameters {
         // Image Destro.
-        choice(choices: 'RHEL\nCentOS' , description: 'What is the Image Destro?' , name: 'ImageDestro')
+        choice(choices: 'centos7:latest\nrel7:latest' , description: 'What is the Image Version?' , name: 'ImageVersion')
         // Required RPM.
         booleanParam(defaultValue: false, description: 'Select if "curl" is required inside the Image.', name: 'curl')
         booleanParam(defaultValue: false, description: 'Select if "net-tools" is required inside the Image.', name: 'net-tools')
@@ -14,12 +14,20 @@ pipeline {
         stage("Build") {
             steps {
                 script {
+                    sh "echo "FROM ImageVersion"
                     if (env.curl == 'true')  {
-                        sh "echo "FROM centos:latest" > Dockerfile"
+                        sh "echo "yum install -y curl" >> Dockerfile"
                         }
+                    if (env.net-tools == 'true')  {
+                        sh "echo "yum install -y net-tools" >> Dockerfile"
+                        }
+                    if (env.bind-utils == 'true')  {
+                        sh "echo "yum install -y bind-utils" >> Dockerfile"
+                        }
+                    else {
+                        echo 'Please select at least one package.'
                     }
-                    def app = docker.build("getintodevops/hellonode")
-                }   
+                }
             }
-        }
+        }   
     }
