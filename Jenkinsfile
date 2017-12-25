@@ -14,7 +14,7 @@ pipeline {
         stage("Build") {
             steps {
                 script {
-                    sh "echo "FROM ImageVersion"
+                    sh "echo "FROM env.ImageVersion"
                     if (env.curl == 'true')  {
                         sh "echo "yum install -y curl" >> Dockerfile"
                         }
