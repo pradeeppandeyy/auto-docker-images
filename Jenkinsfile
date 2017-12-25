@@ -15,7 +15,7 @@ pipeline {
             steps {
                 script {
                     if (env.curl == 'true')  {
-                        sh echo "FROM centos:latest" > Dockerfile
+                        sh "echo "FROM centos:latest" > Dockerfile"
                         }
                     }
                     app = docker.build("getintodevops/hellonode")
