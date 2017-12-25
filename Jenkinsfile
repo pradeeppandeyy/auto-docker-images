@@ -17,15 +17,13 @@ pipeline {
  //                   sh "echo "FROM env.ImageVersion"
                         if (env.curl == 'true')  {
                         sh "echo yum install -y curl > Dockerfile"
-                        sh "echo 123"
-                        echo 'test1'
                         }
- //                   if (env.net-tools == 'true')  {
- //                       sh "echo "yum install -y net-tools" >> Dockerfile"
- //                       }
-//                    if (env.bind-utils == 'true')  {
-//                        sh "echo "yum install -y bind-utils" >> Dockerfile"
-//                        }
+                        if (env.net-tools == 'true')  {
+                        sh "echo "yum install -y net-tools" >> Dockerfile"
+                        }
+                        if (env.bind-utils == 'true')  {
+                        sh "echo "yum install -y bind-utils" >> Dockerfile"
+                        }
 //                    else {
 //                        echo 'Please select at least one package.'
  //                   }
