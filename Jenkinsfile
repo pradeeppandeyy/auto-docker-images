@@ -16,7 +16,7 @@ pipeline {
                 script {
                     if (env.curl == 'true')  {
                         echo "yum install curl -y >> Dockerfile"
-                        docker built -t centos7:v1 .
+                        sh "docker built -t centos7:v1 . "
                         }
                     }
                 }   
