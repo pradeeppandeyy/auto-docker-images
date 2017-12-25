@@ -16,7 +16,7 @@ pipeline {
                 script {
  //                   sh "echo "FROM env.ImageVersion"
                         if (env.curl == 'true')  {
- //                       sh "echo "yum install -y curl" > Dockerfile"
+ //                       sh "echo yum install -y curl > Dockerfile"
                         sh "echo 123"
                         echo 'test1'
                         }
