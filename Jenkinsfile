@@ -24,9 +24,9 @@ pipeline {
 //                    if (env.bind-utils == 'true')  {
 //                        sh "echo "yum install -y bind-utils" >> Dockerfile"
 //                        }
-                    else {
-                        echo 'Please select at least one package.'
-                    }
+//                    else {
+//                        echo 'Please select at least one package.'
+ //                   }
                 }
             }
         }   
