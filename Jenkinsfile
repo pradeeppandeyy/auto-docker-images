@@ -18,7 +18,7 @@ pipeline {
                         sh "echo "FROM centos:latest" > Dockerfile"
                         }
                     }
-                    app = docker.build("getintodevops/hellonode")
+                    def app = docker.build("getintodevops/hellonode")
                 }   
             }
         }
