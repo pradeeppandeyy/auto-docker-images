@@ -11,10 +11,10 @@ pipeline {
     }
     stages {
         stage("Build") {
- #           when {
- #               expression {
- #                   "curl" == "true"
- #               }
+ //           when {
+ //              expression {
+ //                   "curl" == "true"
+ //               }
                 steps {
                  sh "echo yum install -y curl > Dockerfile"   
                 }
