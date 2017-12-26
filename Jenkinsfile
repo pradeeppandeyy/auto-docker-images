@@ -15,7 +15,7 @@ pipeline {
                 script {
                     if (params.curl == true) {
                         stage ('Stage 1') {
-                            sh "echo RUN yum install -y curl >> Dockerfile"
+                            sh "echo 'RUN yum install -y curl' >> 'Dockerfile'"
                         }
                     }
                     if (env.curl == 'false') {
