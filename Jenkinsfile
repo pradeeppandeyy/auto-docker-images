@@ -15,7 +15,7 @@ pipeline {
                 script {
                     if (params.curl == true) {
                         stage ('Stage 1') {
-                            stages {
+                            steps {
                             writeFile (file: 'dockerfile', text: 'RUN yum install -y curl')
                         }
                     }
