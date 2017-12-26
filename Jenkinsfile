@@ -13,7 +13,7 @@ pipeline {
         stage ('Main Stage') {
             steps {
                 script {
-                    if (env.curl == true) {
+                    if (params.curl == true) {
                         stage ('Stage 1') {
                             sh "echo FROM ${env.ImageVersion} > Dockerfile && echo RUN yum install -y curl >> Dockerfile"
                         }
