@@ -16,7 +16,7 @@ pipeline {
                 environment name: 'curl', value: 'true'
             }
             steps {
-                sh "echo FROM ${env.ImageVersion} > Dockerfile && echo yum install -y curl >> Dockerfile"   
+                sh "echo FROM ${env.ImageVersion} > Dockerfile && echo RUN yum install -y curl >> Dockerfile"   
             }
         }
                 stage("Install Net-tools") {
@@ -24,7 +24,28 @@ pipeline {
                 environment name: 'curl', value: 'true'
             }
             steps {
-                sh "echo FROM ${env.ImageVersion} > Dockerfile && echo yum install -y net-tools >> Dockerfile"   
+                sh "echo FROM ${env.ImageVersion} > Dockerfile && echo RUN yum  install -y net-tools >> Dockerfile"   
+            }   
+        }
+
+                stage('Install RPM') {
+            paraller {
+                    stage("Install Curl") {
+                when {
+                    environment name: 'curl', value: 'true'
+                }
+                    steps {
+                        sh "echo FROM ${env.ImageVersion} > Dockerfile && echo RUN yum install -y curl >> Dockerfile"   
+                    }
+                }
+                stage("Install Net-tools") {
+                    when {
+                        environment name: 'net-tools', value: 'true'
+                    }
+                    steps {
+                        sh "echo FROM ${env.ImageVersion} > Dockerfile && echo RUN yum  install -y net-tools >> Dockerfile"
+                    }
+                }    
             }
         }
                 stage("Install Bind-Utils") {
@@ -32,7 +53,7 @@ pipeline {
                 environment name: 'curl', value: 'true'
             }
             steps {
-                sh "echo FROM ${env.ImageVersion} > Dockerfile && echo yum install -y bind-utils >> Dockerfile"   
+                sh "echo FROM ${env.ImageVersion} > Dockerfile && echo RUN yum install -y bind-utils >> Dockerfile"   
             }
         }
                 stage("Install Coreutils") {
@@ -40,8 +61,33 @@ pipeline {
                 environment name: 'curl', value: 'true'
             }
             steps {
-                sh "echo FROM ${env.ImageVersion} > Dockerfile && echo yum install -y coreutils >> Dockerfile"   
+                sh "echo FROM ${env.ImageVersion} > Dockerfile && echo RUN yum install -y coreutils >> Dockerfile"   
             }
         }
     }
 }
+
+        stage('Install RPM') {
+            paraller {
+                    stage("Install Curl") {
+                when {
+                    environment name: 'curl', value: 'true'
+                }
+                    steps {
+                        sh "echo FROM ${env.ImageVersion} > Dockerfile && echo RUN yum install -y curl >> Dockerfile"   
+                    }
+                }
+                stage("Install Net-tools") {
+                    when {
+                        environment name: 'net-tools', value: 'true'
+                    }
+                    steps {
+                        sh "echo FROM ${env.ImageVersion} > Dockerfile && echo RUN yum  install -y net-tools >> Dockerfile"
+                    }
+                }    
+            }
+        }
+
+
+
+
