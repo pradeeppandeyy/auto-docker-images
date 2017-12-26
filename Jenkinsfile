@@ -18,7 +18,7 @@ pipeline {
                             sh "echo FROM ${env.ImageVersion} > Dockerfile && echo RUN yum install -y curl >> Dockerfile"
                         }
                     }
-                    if (env.curl == ) {
+                    if (env.curl == 'false') {
                         stage ('Stage 2') {
                             sh 'echo Stage 2'
                         }
