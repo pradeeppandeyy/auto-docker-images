@@ -15,9 +15,11 @@ pipeline {
                 script {
                     if (params.curl == true) {
                         stage ('Stage 1') {
+                            stages
                             writeFile (file: 'dockerfile', text: 'RUN yum install -y curl')
                         }
                     }
+                }
                     if (env.curl == 'false') {
                         stage ('Stage 2') {
                             sh 'echo Stage 2'
@@ -27,4 +29,3 @@ pipeline {
             }
         }
     }
-}
