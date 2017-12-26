@@ -29,7 +29,7 @@ pipeline {
         }
 
                 stage('Install RPM') {
-            paraller {
+            parallel {
                     stage("Install Curl") {
                 when {
                     environment name: 'curl', value: 'true'
@@ -66,28 +66,3 @@ pipeline {
         }
     }
 }
-
-        stage('Install RPM') {
-            parallel {
-                    stage("Install Curl") {
-                when {
-                    environment name: 'curl', value: 'true'
-                }
-                    steps {
-                        sh "echo FROM ${env.ImageVersion} > Dockerfile && echo RUN yum install -y curl >> Dockerfile"   
-                    }
-                }
-                stage("Install Net-tools") {
-                    when {
-                        environment name: 'net-tools', value: 'true'
-                    }
-                    steps {
-                        sh "echo FROM ${env.ImageVersion} > Dockerfile && echo RUN yum  install -y net-tools >> Dockerfile"
-                    }
-                }    
-            }
-        }
-
-
-
-
