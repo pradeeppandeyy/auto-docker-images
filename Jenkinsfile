@@ -1,7 +1,6 @@
 pipeline {
     agent any
-
-       parameters {
+    parameters {
         // Image Destro.
         choice(choices: 'centos7:latest\nrhel7:latest' , description: 'What is the Image Version?' , name: 'ImageVersion')
         // Required RPM.
@@ -10,25 +9,21 @@ pipeline {
         booleanParam(defaultValue: false, description: 'Select if "bind-utils" is required inside the Image.', name: 'bind-utils')
         booleanParam(defaultValue: false, description: 'Select if "bind-utils" is required inside the Image.', name: 'coreutils')
     }
-    stages {
-                stage('Install RPM') {
-            parallel {
-                    stage("Install Curl") {
-                when {
-                    environment name: 'curl', value: 'true'
-                }
-                    steps {
-                        sh "echo FROM ${env.ImageVersion} > Dockerfile && echo RUN yum install -y curl >> Dockerfile"   
+     stages {
+        stage ('Main Stage') {
+            steps {
+                script {
+                    if (env.curl == true) {
+                        stage ('Stage 1') {
+                            sh 'echo Stage 1'
+                        }
+                    }
+                    if (env.curl == false) {
+                        stage ('Stage 2') {
+                            sh 'echo Stage 2'
+                        }
                     }
                 }
-                stage("Install Net-tools") {
-                    when {
-                        environment name: 'net-tools', value: 'true'
-                    }
-                    steps {
-                        sh "echo FROM ${env.ImageVersion} > Dockerfile && echo RUN yum  install -y net-tools >> Dockerfile"
-                    }
-                }    
             }
         }
     }
