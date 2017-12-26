@@ -68,7 +68,7 @@ pipeline {
 }
 
         stage('Install RPM') {
-            paraller {
+            parallel {
                     stage("Install Curl") {
                 when {
                     environment name: 'curl', value: 'true'
