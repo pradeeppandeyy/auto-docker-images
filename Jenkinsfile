@@ -44,7 +44,7 @@ pipeline {
         }
         stage ('Main Stage 2') {
             steps {
-                echo test2
+                
             }
         }
 
