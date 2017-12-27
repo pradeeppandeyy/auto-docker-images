@@ -12,7 +12,7 @@ pipeline {
      stages {
         stage ('Main Stage') {
             steps {
-                writeFile (file: 'Dockerfile', text: 'FROM ${params.ImageVersion}')
+                writeFile (file: 'Dockerfile', text: 'FROM ${params.ImageVersion}\n')
                 script {
                     if (params.curl == true) {
                         stage ('Stage 1') {
