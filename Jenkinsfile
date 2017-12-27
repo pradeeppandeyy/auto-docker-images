@@ -16,25 +16,25 @@ pipeline {
                     if (params.curl == true) {
                         stage ('Stage 1') {
                             echo "This Was Successfull."
-                            sh "echo -e 'RUN yum install -y curl_1' | tee -a Dockerfile"
+                            sh "echo -e 'RUN yum install -y curl' | tee -a Dockerfile"
                         }
                     }
                     if (params.net_tools == true) {
                         stage ('Stage 2') {
                             echo "This Was Successfull."
-                            sh "echo -e 'RUN yum install -y curl_1' | tee -a Dockerfile"
+                            sh "echo -e 'RUN yum install -y net-tools' | tee -a Dockerfile"
                         }
                     }
                     if (params.bind_utils == true) {
                         stage ('Stage 3') {
                             echo "This Was Successfull."
-                            sh "echo -e 'RUN yum install -y curl_1' | tee -a Dockerfile"
+                            sh "echo -e 'RUN yum install -y bind-utils' | tee -a Dockerfile"
                         }
                     }
                     if (params.core_utils == true) {
                         stage ('Stage 4') {
                             echo "This Was Successfull."
-                            sh "echo -e 'RUN yum install -y curl_1' | tee -a Dockerfile"
+                            sh "echo -e 'RUN yum install -y core-utils' | tee -a Dockerfile"
                         }
                     }
                     
