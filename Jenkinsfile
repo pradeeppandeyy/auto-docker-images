@@ -5,9 +5,9 @@ pipeline {
         choice(choices: 'centos7:latest\nrhel7:latest' , description: 'What is the Image Version?' , name: 'ImageVersion')
         // Required RPM.
         booleanParam(defaultValue: false, description: 'Select if "curl" is required inside the Image.', name: 'curl')
-        booleanParam(defaultValue: false, description: 'Select if "net-tools" is required inside the Image.', name: 'net-tools')
-        booleanParam(defaultValue: false, description: 'Select if "bind-utils" is required inside the Image.', name: 'bind-utils')
-        booleanParam(defaultValue: false, description: 'Select if "bind-utils" is required inside the Image.', name: 'coreutils')
+        booleanParam(defaultValue: false, description: 'Select if "net-tools" is required inside the Image.', name: 'net_tools')
+        booleanParam(defaultValue: false, description: 'Select if "bind-utils" is required inside the Image.', name: 'bind_utils')
+        booleanParam(defaultValue: false, description: 'Select if "bind-utils" is required inside the Image.', name: 'core_utils')
     }
      stages {
         stage ('Main Stage') {
@@ -19,19 +19,19 @@ pipeline {
                             sh "echo -e 'RUN yum install -y curl_1' | tee -a Dockerfile"
                         }
                     }
-                    if (params.net-tools == true) {
+                    if (params.net_tools == true) {
                         stage ('Stage 2') {
                             echo "This Was Successfull."
                             writeFile file: 'Dockerfile', text: 'RUN yum install -y curl2'
                         }
                     }
-                    if (params.bindutils == true) {
+                    if (params.bind_utils == true) {
                         stage ('Stage 3') {
                             echo "This Was Successfull."
                             writeFile file: 'Dockerfile', text: 'RUN yum install -y curl3'
                         }
                     }
-                    if (params.coreutils == true) {
+                    if (params.core_utils == true) {
                         stage ('Stage 4') {
                             echo "This Was Successfull."
                             writeFile file: 'Dockerfile', text: 'RUN yum install -y curl4'
