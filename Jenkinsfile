@@ -16,7 +16,7 @@ pipeline {
                     if (params.curl == true) {
                         stage ('Stage 1') {
                             echo "This Was Successfull."
-                            echo -e "RUN yum install -y curl_1" | tee -a "Dockerfile"
+                            echo -e "RUN yum install -y curl_1" | tee -a Dockerfile
                         }
                     }
                     if (params.curl == true) {
