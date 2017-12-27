@@ -2,7 +2,8 @@ pipeline {
     agent any
     parameters {
         // Image Destro.
-        choice(choices: 'centos7:latest\nrhel7:latest' , description: 'What is the Image Version?' , name: 'ImageVersion')
+        choice(choices: 'centos7\nrhel7' , description: 'What is the Image Version?' , name: 'ImageVersion')
+        choice(choices: 'latest\nv1' , description: 'What is the Image Version?' , name: 'ImageTag')
         // Required RPM.
         booleanParam(defaultValue: false, description: 'Select if "curl" is required inside the Image.', name: 'curl')
         booleanParam(defaultValue: false, description: 'Select if "net-tools" is required inside the Image.', name: 'net_tools')
@@ -12,7 +13,7 @@ pipeline {
      stages {
         stage ('Main Stage') {
             steps {
-                sh "echo -e 'FROM ${env.ImageVersion}' | tee Dockerfile"
+                sh "echo -e 'FROM ${env.ImageVersion}:${env.ImageTag}' | tee Dockerfile"
                 script {
                     if (params.curl == true) {
                         stage ('Stage 1') {
