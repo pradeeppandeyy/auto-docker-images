@@ -12,7 +12,7 @@ pipeline {
      stages {
         stage ('Main Stage') {
             steps {
-                writeFile file: 'Dockkerfile', text: FROM $ImageVersion
+                sh "echo -e ‘FROM params.ImageVersion’ | tee -a Dockerfile"
                 script {
                     if (params.curl == true) {
                         stage ('Stage 1') {
