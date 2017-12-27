@@ -19,7 +19,7 @@ pipeline {
                             sh "echo -e 'RUN yum install -y curl_1' | tee -a Dockerfile"
                         }
                     }
-                    if (params.nettools == true) {
+                    if (params.net-tools == true) {
                         stage ('Stage 2') {
                             echo "This Was Successfull."
                             writeFile file: 'Dockerfile', text: 'RUN yum install -y curl2'
