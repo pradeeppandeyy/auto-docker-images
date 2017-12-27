@@ -20,19 +20,19 @@ pipeline {
                         }
                     }
                     if (params.curl == true) {
-                        stage ('Stage 1') {
+                        stage ('Stage 2') {
                             echo "This Was Successfull."
                             writeFile file: 'Dockerfile', text: 'RUN yum install -y curl2'
                         }
                     }
                     if (params.curl == true) {
-                        stage ('Stage 1') {
+                        stage ('Stage 3') {
                             echo "This Was Successfull."
                             writeFile file: 'Dockerfile', text: 'RUN yum install -y curl3'
                         }
                     }
                     if (params.curl == true) {
-                        stage ('Stage 1') {
+                        stage ('Stage 4') {
                             echo "This Was Successfull."
                             writeFile file: 'Dockerfile', text: 'RUN yum install -y curl4'
                         }
