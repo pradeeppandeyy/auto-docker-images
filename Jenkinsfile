@@ -2,7 +2,7 @@ pipeline {
     agent any
     parameters {
         // Image Destro.
-        choice(choices: 'centos7\nrhel7' , description: 'What is the Image Version?' , name: 'ImageVersion')
+        choice(choices: 'centos\nregistry.access.redhat.com/rhel7' , description: 'What is the Image Version?' , name: 'ImageVersion')
         choice(choices: 'latest\nv1' , description: 'What is the Image Version?' , name: 'ImageTag')
         // Required RPM.
         booleanParam(defaultValue: false, description: 'Select if "curl" is required inside the Image.', name: 'curl')
