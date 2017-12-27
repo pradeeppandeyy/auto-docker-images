@@ -44,7 +44,7 @@ pipeline {
         }
         stage ('Main Stage 2') {
             steps {
-                echo "This Was Successfull."  
+                sh "docker build -t  ${env.ImageVersion}:${env.BUILD_NUMBER} ."  
             }
         }
         stage ('Main Stage 3') {
