@@ -22,19 +22,19 @@ pipeline {
                     if (params.net_tools == true) {
                         stage ('Stage 2') {
                             echo "This Was Successfull."
-                            writeFile file: 'Dockerfile', text: 'RUN yum install -y curl2'
+                            sh "echo -e 'RUN yum install -y curl_1' | tee -a Dockerfile"
                         }
                     }
                     if (params.bind_utils == true) {
                         stage ('Stage 3') {
                             echo "This Was Successfull."
-                            writeFile file: 'Dockerfile', text: 'RUN yum install -y curl3'
+                            sh "echo -e 'RUN yum install -y curl_1' | tee -a Dockerfile"
                         }
                     }
                     if (params.core_utils == true) {
                         stage ('Stage 4') {
                             echo "This Was Successfull."
-                            writeFile file: 'Dockerfile', text: 'RUN yum install -y curl4'
+                            sh "echo -e 'RUN yum install -y curl_1' | tee -a Dockerfile"
                         }
                     }
                     
