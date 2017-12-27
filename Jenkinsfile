@@ -36,7 +36,7 @@ pipeline {
                     if (params.core_utils == true) {
                         stage ('Stage 4') {
                             echo "This Was Successfull."
-                            sh "echo -e 'RUN yum install -y core-utils' | tee -a Dockerfile"
+                            sh "echo -e 'RUN yum install -y coreutils' | tee -a Dockerfile"
                         }
                     }
                     
