@@ -12,7 +12,7 @@ pipeline {
      stages {
         stage ('Main Stage') {
             steps {
-                sh "echo -e 'FROM ${env.ImageVersion}' | tee -a Dockerfile"
+                sh "echo -e 'FROM ${env.ImageVersion}' | tee Dockerfile"
                 script {
                     if (params.curl == true) {
                         stage ('Stage 1') {
