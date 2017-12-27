@@ -16,6 +16,7 @@ pipeline {
                     if (params.curl == true) {
                         stage ('Stage 1') {
                             echo "This Was Successfull."
+                            writeFile file: '123', text: 'this is txt'
                     }
                 }
                     if (env.curl == 'false') {
