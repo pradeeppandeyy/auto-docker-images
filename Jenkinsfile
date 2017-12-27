@@ -47,6 +47,10 @@ pipeline {
                 echo "This Was Successfull."  
             }
         }
-
+        stage ('Main Stage 3') {
+            steps {
+                echo "This Was Successfull."  
+            }
+        }
     }
 }
